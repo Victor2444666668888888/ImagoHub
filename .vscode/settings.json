@@ -1,0 +1,16 @@
+{
+  "editor.formatOnSave": true,
+  "[dart]": {
+    "editor.defaultFormatter": "Dart-Code.dart-code",
+    "editor.rulers": [
+      100
+    ]
+  },
+  "files.exclude": {
+    "**/.dart_tool": true,
+    "**/build": true,
+    "**/__pycache__": true
+  },
+  "python.defaultInterpreterPath": "python",
+  "dart.flutterHotReloadOnSave": "all"
+}

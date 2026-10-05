@@ -1,0 +1,53 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "ImagoHub · Chrome",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "deviceId": "chrome",
+      "preLaunchTask": "ImagoHub: preparar",
+      "toolArgs": [
+        "--web-hostname",
+        "127.0.0.1",
+        "--web-port",
+        "8080",
+        "--dart-define=API_BASE_URL=http://127.0.0.1:8787"
+      ],
+      "env": {
+        "CI": "true",
+        "FLUTTER_SUPPRESS_ANALYTICS": "true"
+      }
+    },
+    {
+      "name": "ImagoHub · Windows",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "deviceId": "windows",
+      "preLaunchTask": "ImagoHub: preparar",
+      "toolArgs": [
+        "--dart-define=API_BASE_URL=http://127.0.0.1:8787"
+      ],
+      "env": {
+        "CI": "true",
+        "FLUTTER_SUPPRESS_ANALYTICS": "true"
+      }
+    },
+    {
+      "name": "ImagoHub · emulador Android",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "preLaunchTask": "ImagoHub: preparar",
+      "toolArgs": [
+        "--dart-define=API_BASE_URL=http://10.0.2.2:8787"
+      ],
+      "env": {
+        "CI": "true",
+        "FLUTTER_SUPPRESS_ANALYTICS": "true"
+      }
+    }
+  ]
+}
