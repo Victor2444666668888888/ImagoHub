@@ -466,7 +466,7 @@ class AppState extends ChangeNotifier {
         'name': name,
         'email': email,
         'password': password,
-        if (username != null) 'username': username,
+        'username': ?username,
       },
     );
     try {
