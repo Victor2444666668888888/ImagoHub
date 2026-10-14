@@ -265,6 +265,7 @@ void main() {
     }
     state.navigate(AppPage.discover);
     await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('Carros'));
     await tester.tap(find.text('Carros'));
     await tester.pumpAndSettle();
     expect(state.page, AppPage.results);

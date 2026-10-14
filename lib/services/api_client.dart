@@ -19,11 +19,7 @@ class ApiException implements Exception {
 String defaultApiBase() {
   const configured = String.fromEnvironment('API_BASE_URL');
   if (configured.isNotEmpty) return configured;
-  final host = kIsWeb
-      ? Uri.base.host
-      : defaultTargetPlatform == TargetPlatform.android
-      ? '10.0.2.2'
-      : '127.0.0.1';
+  final host = kIsWeb ? Uri.base.host : '127.0.0.1';
   return 'http://$host:8787';
 }
 

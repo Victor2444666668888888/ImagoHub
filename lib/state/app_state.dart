@@ -148,11 +148,11 @@ class AppState extends ChangeNotifier {
     }
     if (user != null) {
       profile = UserProfile(
-        name: user!['name'],
-        email: user!['email'],
-        username: (user!['username'] as String?)?.isNotEmpty == true
-            ? user!['username']
-            : profile.username,
+        name: profile.name.isNotEmpty ? profile.name : user!['name'],
+        email: profile.email.isNotEmpty ? profile.email : user!['email'],
+        username: profile.username.isNotEmpty
+            ? profile.username
+            : (user!['username'] as String?) ?? '',
         bio: profile.bio,
         avatar: profile.avatar,
       );
@@ -177,13 +177,17 @@ class AppState extends ChangeNotifier {
   }
 
   void navigate(AppPage value) {
+    if (!isAuthenticated &&
+        value != AppPage.login &&
+        value != AppPage.register) {
+      page = AppPage.login;
+      notifyListeners();
+      return;
+    }
     if (value == AppPage.search && page != AppPage.results) {
       clearSearchFilters();
     }
-    page =
-        isAuthenticated || value == AppPage.login || value == AppPage.register
-        ? value
-        : AppPage.login;
+    page = value;
     notifyListeners();
   }
 
